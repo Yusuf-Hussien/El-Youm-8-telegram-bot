@@ -305,7 +305,7 @@ public class TelegramBotHandler extends TelegramLongPollingBot {
 
     private void handleArabicMidNameSearch(Long chatId, String name) {
         Message sentMessage = sendMessage(chatId,"🔎 يتم البحث...");
-        List<String> students = studentService.getStudentsWithName(name,true,true);
+        List<String> students = studentService.getStudentsWithName(name,false,true);
         deleteMessage(chatId,sentMessage.getMessageId());
         sendMessages(chatId, students);
         if (students.size() > 1) {
